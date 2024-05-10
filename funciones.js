@@ -3,12 +3,110 @@ const buttons = document.querySelectorAll('button');
 const porcent = document.getElementById('porcent')
 const granTotal = document.getElementById('granTotal')
 const propina = document.getElementById('propina')
-
- buttons.forEach(boton => { 
+const compra = document.getElementById('producto')
+//se le de click al numero 
+ buttons.forEach(boton => {/*esto es para darle apellido (boton) y que todo con el  mismo apellido tenga la misma fx*/ 
      boton.addEventListener('click', () => {
-         console.log(boton.textContent);
+         //para que se vea la pantalla
+         const pantalla = boton.id;
+         display.value += pantalla;
+
+//para que delete fx y se borre un espacio.
+
+        console.log(boton.id)
+         if (boton.id == 'de') {
+            display.value = display.value.slice(0, -3)
+            
+         }
+
+// para ac tenga fx y se ponga la pantalla vacia.
+         if (boton.id == 'ac') {
+            display.value = '';
+         }
+
+
+         console.log(pantalla)
      })
  })
+
+
+
+
+/*para que sirva el = le quite el id al boton y le di una fx onclick, 
+llame la fx en js y le dije que el valor va a ser el contenido del display por medio del 'eval'*/
+ function calcular() {
+    let resultado = display.value;
+    display.value = eval(resultado)
+
+     console.log(compra.innerText)
+     compra.value=display.value   
+     
+ }
+ 
+ function tips(porcent, display) {
+    let displayFloat = parseFloat(display)
+    let porcentFloat = parseFloat(porcent)
+    return displayFloat * porcentFloat / 100;
+}
+
+
+porcent.addEventListener("keyup", () => {
+    propina.value = tips(display.value, porcent.value)
+
+    let propinaFloat = parseFloat(propina.value)
+    
+    let displayFloat = parseFloat(display.value)
+    console.log(propinaFloat + displayFloat)
+    granTotal.value = propinaFloat + displayFloat
+    
+    if (porcent.value <= 0) {
+        granTotal.value = display.value
+        propina.value = 0
+    }
+    
+    
+})
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+//var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+var tikect = document.getElementsByClassName('proforma')
+
+let modalTotalH3 = document.getElementById("montoTotalModal")
+let modalPorcent = document.getElementById('montoPorcentajeModal')
+let modalPropina = document.getElementById('montoPropinaModal')
+
+
+function boton() {
+    modal.style.display = 'block';
+    modalTotalH3.innerHTML="El monto total es:" + " "+granTotal.value;
+    modalPorcent.innerHTML='Porcentage:'+''+ porcent.value;
+    modalPropina.innerHTML = 'Propina:'+ ''+ propina.value
+}
+
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
 /*
 buttons.forEach(btn => {
     btn.addEventListener('click', () =>{
@@ -24,30 +122,4 @@ buttons.forEach(btn => {
         }
     })
     
-});
-
-function tips(porcent, display) {
-    let displayFloat = parseFloat(display)
-    let porcentFloat = parseFloat(porcent)
-    return displayFloat * porcentFloat / 100;
-}
-
-porcent.addEventListener("keyup", () => {
-    propina.value = tips(display.value, porcent.value)
-
-    let propinaFloat = parseFloat(propina.value)
-
-    let displayFloat = parseFloat(display.value)
-    console.log(propinaFloat + displayFloat)
-    granTotal.value = propinaFloat + displayFloat
-
-
-    console.log(porcent.value)
-    if (porcent.value <= 0) {
-        granTotal.value = 0
-        propina.value = 0
-    }
-
-
-})
-*/
+});*/

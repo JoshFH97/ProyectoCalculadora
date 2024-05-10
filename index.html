@@ -34,11 +34,39 @@
         <br>
         <button id="00">00</button>
         <button id="0">0</button>
-        <button id="=" class="equal operator">=</button>
+        <button onclick="calcular()" class="equal operator">=</button>
         <br>
-        <input id="porcent" type="text">
-        <input id="propina" type="text" disabled>
-        <input type="text" id="granTotal" disabled>
+
+    </div>
+    <div class="proforma">
+        <h1>Proforma</h1>
+        <div class="porc">
+            <input id="porcent" type="text">
+            <h3>%</h3>
+        </div>
+        <div class="prop">
+            <h3>Propina: </h3>
+            <input id="propina" type="text" disabled>
+        </div>
+        <div id="compra">
+            <h3>Compra:</h3>
+            <input id="producto" type="text" disabled>
+        </div>
+        <div class="gran">
+            <h3>Gran Total:</h3>
+            <input id="granTotal" type="text" disabled>
+        </div>
+        <button class="myBtn" onclick="boton()">Imprimir Tiquete</button>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Gracias por preferirnos! 😊</p>
+                <h3 id="montoPropinaModal"></h3>
+                <h3 id="montoPorcentajeModal"></h3>
+                <h3 id="montoTotalModal"></h3>
+            </div>
+
+        </div>
 
     </div>
 
