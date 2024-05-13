@@ -67,59 +67,34 @@ porcent.addEventListener("keyup", () => {
     
 })
 
-// Get the modal
 var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-//var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal
-var tikect = document.getElementsByClassName('proforma')
+var tikect = document.getElementsByClassName('proforma');
 
 let modalTotalH3 = document.getElementById("montoTotalModal")
 let modalPorcent = document.getElementById('montoPorcentajeModal')
 let modalPropina = document.getElementById('montoPropinaModal')
+let modalCompra = document.getElementById('montoCompraModal')
 
-
+// muentra el modal y que contenido se va a mostrar en el "tiquete".
 function boton() {
     modal.style.display = 'block';
     modalTotalH3.innerHTML="El monto total es:" + " "+granTotal.value;
     modalPorcent.innerHTML='Porcentage:'+''+ porcent.value;
-    modalPropina.innerHTML = 'Propina:'+ ''+ propina.value
+    modalPropina.innerHTML = 'Propina:'+ ''+ propina.value;
+    modalCompra.innerHTML = 'Compra:'+''+ compra.value;
 }
 
 
 
-// When the user clicks on <span> (x), close the modal
+// click en la x para cerrar el modal.
 span.onclick = function() {
   modal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// click en la parte gris para cerrar el modal.
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-
-
-
-/*
-buttons.forEach(btn => {
-    btn.addEventListener('click', () =>{
-        if(btn.id === '='){
-            display.value = eval(display.value);
-        } else if ( btn.id === 'ac') {
-            display.value = '';
-        } else if (btn.id == 'de') {
-            display.value = display.value.slice(0, -1);
-    
-        } else {
-            display.value += btn.id
-        }
-    })
-    
-});*/
